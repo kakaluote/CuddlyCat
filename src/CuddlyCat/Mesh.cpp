@@ -128,8 +128,8 @@ void Mesh::addTexture(const std::string& name, const std::string& path)
 	TextureInfo info;
 	info.name = name;
 	info.path = path;
+	info.id = TextureCache::getInstance()->loadByFile(path);
 	_textures.push_back(info);
-	_textures.back().id = TextureCache::getInstance()->loadByFile(path);
 }
 
 Mesh Mesh::initPlane()

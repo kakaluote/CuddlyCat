@@ -24,33 +24,11 @@ bool Shader::initByFile(const std::string& vertexPath, const std::string& fragme
 	_vertexPath = vertexPath;
 	_fragmentPath = fragmentPath;
 
-	// 1. retrieve the vertex/fragment source code from filePath
 	std::string vertexCode;
 	std::string fragmentCode;
-	std::ifstream vShaderFile;
-	std::ifstream fShaderFile;
-	// ensure ifstream objects can throw exceptions:
-	vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-	fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-	try
+	if (!readFile(vertexPath, vertexCode) || !readFile(fragmentPath, fragmentCode))
 	{
-		// open files
-		vShaderFile.open(vertexPath);
-		fShaderFile.open(fragmentPath);
-		std::stringstream vShaderStream, fShaderStream;
-		// read file's buffer contents into streams
-		vShaderStream << vShaderFile.rdbuf();
-		fShaderStream << fShaderFile.rdbuf();
-		// close file handlers
-		vShaderFile.close();
-		fShaderFile.close();
-		// convert stream into string
-		vertexCode = vShaderStream.str();
-		fragmentCode = fShaderStream.str();
-	}
-	catch (std::ifstream::failure& e)
-	{
-		std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
+		return false;
 	}
 	const char* vShaderCode = vertexCode.c_str();
 	const char * fShaderCode = fragmentCode.c_str();
@@ -91,6 +69,30 @@ bool Shader::initByFile(const std::string& vertexPath, const std::string& fragme
 
 	return true;
 }
+
+
+bool Shader::readFile(const std::string& filePath, std::string& codeStr)
+{
+	std::ifstream fs;
+
+	fs.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+	try
+	{
+		fs.open(filePath);
+		std::stringstream ss;
+		ss << fs.rdbuf();
+		fs.close();
+		codeStr = ss.str();
+	}
+	catch (std::ifstream::failure& e)
+	{
+		std::cout << "Error: read shader file "<< filePath << std::endl;
+		return false;
+	}
+
+	return true;
+}
+
 
 bool Shader::checkCompileErrors(unsigned int shader, std::string type)
 {

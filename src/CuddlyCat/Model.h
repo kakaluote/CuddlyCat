@@ -19,6 +19,7 @@
 #include "Shader.h"
 #include "mesh.h"
 #include "Camera.h"
+#include "Material.h"
 
 using namespace std;
 
@@ -91,10 +92,10 @@ private:
 	vector<TextureInfo> loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName);
 
 private:
-
 	string _modelFileDir;
 	vector<Mesh>_meshs;
 	Shader* _shader;
+	Material _material;
 
 	glm::vec3 _pos;
 	glm::vec3 _rot;

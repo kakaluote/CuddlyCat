@@ -1,93 +1,26 @@
-#include "Model.h"
-#include "FileSystem.h"
-#include "stb_image.h"
+#include "ObjLoader.h"
+#include "assimp/Importer.hpp"
+#include "assimp/postprocess.h"
+#include <iostream>
 #include "Timer.h"
-#include "ShaderCache.h"
+#include <vector>
+#include "Mesh.h"
+
+using namespace std;
+
 NS_CC_BEGIN
 
-Model::Model():
-	_pos(0,0,0),
-	_rot(0,0,0),
-	_scale(1,1,1)
+ObjLoader::ObjLoader()
 {
 }
 
 
-Model::~Model()
+ObjLoader::~ObjLoader()
 {
+
 }
 
-bool Model::init()
-{
-	_meshs.push_back(Mesh::initBox());
-
-	for (int i = 0; i < _meshs.size(); i++) {
-		_meshs[i].prepareGL();
-	}
-
-	return true;
-}
-
-bool Model::init2()
-{
-	_meshs.push_back(Mesh::initPlane());
-
-	for (int i = 0; i < _meshs.size(); i++) {
-		_meshs[i].prepareGL();
-	}
-
-	return true;
-}
-
-bool Model::initByGeometryType()
-{
-	return true;
-}
-
-bool Model::initByModelFile(const string& model_file) 
-{
-	_modelFileDir = model_file.substr(0, model_file.find_last_of('/'));
-	loadModel(model_file);
-
-	for (int i = 0; i < _meshs.size(); i++) {
-		_meshs[i].prepareGL();
-	}
-
-	return true;
-}
-
-void Model::draw(const Camera& camera, const glm::vec3& lightPos, const glm::vec3& lightColor)
-{
-	_shader->use();
-	_shader->setMat4("projection", camera.getProjectionMatrix());
-	_shader->setMat4("view", camera.getViewMatrix());
-	_shader->setMat4("model", getTransformMat());
-
-	_shader->setVec3("lightPos", lightPos);
-	_shader->setVec3("viewPos", camera.getPos());
-	_shader->setVec3("lightColor", lightColor);
-
-	for (int i = 0; i < _meshs.size(); i++) {
-		_meshs[i].draw(*_shader);
-	}
-}
-
-
-void Model::setShader(const std::string& vertexPath, const std::string& fragmentPath)
-{
-	_shader = ShaderCache::getInstance()->loadByFile(vertexPath, fragmentPath);
-}
-
-void Model::addTexture(const std::string& name, const std::string& path) 
-{
-	for (int i = 0; i < _meshs.size(); i++) {
-		_meshs[i].addTexture(name, path);
-	}
-}
-
-/////////////////////////////////////
-
-void Model::loadModel(const string& path)
+void ObjLoader::loadModel(std::string const & path)
 {
 	Assimp::Importer importer;
 	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
@@ -99,30 +32,29 @@ void Model::loadModel(const string& path)
 
 	processNode(scene->mRootNode, scene);
 }
-void Model::processNode(aiNode *node, const aiScene *scene)
+
+void ObjLoader::processNode(aiNode * node, const aiScene * scene)
 {
+	Timer t;
 	for (unsigned int i = 0; i < node->mNumMeshes; i++)
 	{
 		// the node object only contains indices to index the actual objects in the scene. 
 		// the scene contains all the data, node is just to keep stuff organized (like relations between nodes).
 		aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
 
-		Timer t;
 		t.tik();
-		
 		processMesh(mesh, scene);
-
-		cout << "processMesh " << i+1 << "/" << node->mNumMeshes << ", name " << mesh->mName.C_Str() <<", time "<<t.tok()<< endl;
+		cout << "processMesh " << i + 1 << "/" << node->mNumMeshes << ", name " << mesh->mName.C_Str() << ", time " << t.tok() << endl;
 	}
 
 	for (unsigned int i = 0; i < node->mNumChildren; i++)
 	{
-		cout << "processNode " << i+1 << "/" << node->mNumChildren << ", name " << node->mChildren[i]->mName.C_Str() << endl;
+		cout << "processNode " << i + 1 << "/" << node->mNumChildren << ", name " << node->mChildren[i]->mName.C_Str() << endl;
 		processNode(node->mChildren[i], scene);
 	}
 }
 
-void Model::processMesh(aiMesh *mesh, const aiScene *scene)
+void ObjLoader::processMesh(aiMesh * mesh, const aiScene * scene)
 {
 	vector<VertexData> vertices;
 	vector<unsigned int> indices;
@@ -162,7 +94,7 @@ void Model::processMesh(aiMesh *mesh, const aiScene *scene)
 			vector.z = mesh->mTangents[i].z;
 			vertex.tangent = vector;
 		}
-		
+
 		// bitangent
 		if (mesh->mBitangents)
 		{
@@ -171,10 +103,10 @@ void Model::processMesh(aiMesh *mesh, const aiScene *scene)
 			vector.z = mesh->mBitangents[i].z;
 			vertex.bitangent = vector;
 		}
-		
+
 		vertices.push_back(vertex);
 	}
-	
+
 	for (unsigned int i = 0; i < mesh->mNumFaces; i++)
 	{
 		aiFace face = mesh->mFaces[i];
@@ -208,7 +140,7 @@ void Model::processMesh(aiMesh *mesh, const aiScene *scene)
 	_meshs.push_back(m);
 }
 
-vector<TextureInfo>  Model::loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName)
+vector<TextureInfo> ObjLoader::loadMaterialTextures(aiMaterial * mat, aiTextureType type, std::string typeName)
 {
 	vector<TextureInfo> textures;
 	for (unsigned int i = 0; i < mat->GetTextureCount(type); i++)
@@ -219,13 +151,11 @@ vector<TextureInfo>  Model::loadMaterialTextures(aiMaterial *mat, aiTextureType 
 		texture.name = typeName;
 		texture.path = _modelFileDir + "/" + str.C_Str();
 		textures.push_back(texture);
-		cout << "loadMaterialTextures " << texture.name<<", path " <<texture.path << endl;
+		cout << "loadMaterialTextures " << texture.name << ", path " << texture.path << endl;
 	}
 	return textures;
 }
 
 
 NS_CC_END
-
-
 

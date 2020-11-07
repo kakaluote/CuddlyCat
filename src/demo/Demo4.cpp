@@ -45,51 +45,52 @@ void Demo4::prepare()
 {
 	Model* model;
 
-	// backpack  rock  planet cyborg
+	// backpack  rock  planet cyborg  nanosuit
 	model = new Model;
 	_models.push_back(model);
 
-	model->initByModelFile(FileSystem::getInstance()->getPath("Resources/objects/cyborg/cyborg.obj"));
-	model->setShader("Resources/shader/1.model_loading.vs", "Resources/shader/1.model_loading.fs");
+	
+
+	model->initByModelFile(FileSystem::getInstance()->getPath("Resources/objects/rock/rock.obj"));
+	model->setShader("../shader/myshader/simple4.vs", "../shader/myshader/simple4.fs");
 	//model->setPos(0, -2, 0);
 	//model->setScale(2);
 	//model->setRot(0, 90, 0);
 
 	
 
-	model = new Model;
-	_models.push_back(model);
+	//model = new Model;
+	//_models.push_back(model);
 
-	model->init2();
-	model->setShader("Resources/shader/myshader/simple3.vs", "Resources/shader/myshader/simple3.fs");
-	//model->setPos(0, -2, 0);
-	model->setScale(10);
-
-
-	model = new Model;
-	_models.push_back(model);
-
-	model->init();
-	model->setShader("Resources/shader/myshader/simple2.vs", "Resources/shader/myshader/simple2.fs");
-	model->addTexture("texture_diffuse1", "Resources/textures/container2.png");
-	model->addTexture("texture_specular1", "Resources/textures/container2_specular.png");
-	model->setPos(-2, 0.5, 0);
+	//model->init2();
+	//model->setShader("Resources/shader/myshader/simple3.vs", "Resources/shader/myshader/simple3.fs");
+	////model->setPos(0, -2, 0);
 	//model->setScale(10);
 
 
-	model = new Model;
-	_models.push_back(model);
+	//model = new Model;
+	//_models.push_back(model);
 
-	model->init();
-	model->setShader("Resources/shader/myshader/simple3.vs", "Resources/shader/myshader/simple3.fs");
-	model->setPos(2, 1, 0);
+	//model->init();
+	//model->setShader("Resources/shader/myshader/simple2.vs", "Resources/shader/myshader/simple2.fs");
+	//model->addTexture("texture_diffuse1", "Resources/textures/container2.png");
+	//model->addTexture("texture_specular1", "Resources/textures/container2_specular.png");
+	//model->setPos(-2, 0.5, 0);
+	////model->setScale(10);
+
+
+	//model = new Model;
+	//_models.push_back(model);
+
+	//model->init();
+	//model->setShader("Resources/shader/myshader/simple3.vs", "Resources/shader/myshader/simple3.fs");
+	//model->setPos(2, 1, 0);
 
 
 	_camera.setPos(0, 3, 8);
 	_camera.setPitch(-10.0f);
 	//_camera.setYaw(-100.0f);
 
-	
 	_lightPos = glm::vec3(-2, 1.5f, 1.0f);
 
 
