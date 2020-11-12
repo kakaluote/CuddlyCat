@@ -1,1 +1,3 @@
-﻿
+﻿  Building Custom Rule E:/workspace/unity/CuddlyCat/extern/glad/CMakeLists.txt
+  gl.c
+  glad.vcxproj -> E:\workspace\unity\CuddlyCat\build\extern\glad\Debug\glad.lib

@@ -328,7 +328,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\..\src\CuddlyCat\Pass.cpp" />
     <ClCompile Include="..\..\src\CuddlyCat\Prefab.cpp" />
     <ClCompile Include="..\..\src\CuddlyCat\Scene.cpp" />
-    <ClCompile Include="..\..\src\CuddlyCat\Texture2D.cpp" />
     <ClCompile Include="E:\workspace\unity\CuddlyCat\src\imgui_impl_glfw.cpp" />
     <ClInclude Include="..\..\src\CuddlyCat\component\MeshRenderer.h" />
     <ClInclude Include="..\..\src\CuddlyCat\component\Transform.h" />
@@ -342,7 +341,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\..\src\CuddlyCat\Pass.h" />
     <ClInclude Include="..\..\src\CuddlyCat\Prefab.h" />
     <ClInclude Include="..\..\src\CuddlyCat\Scene.h" />
-    <ClInclude Include="..\..\src\CuddlyCat\Texture2D.h" />
     <ClInclude Include="E:\workspace\unity\CuddlyCat\src\imgui_impl_glfw.h" />
     <ClCompile Include="E:\workspace\unity\CuddlyCat\src\imgui_impl_opengl3.cpp" />
     <ClInclude Include="E:\workspace\unity\CuddlyCat\src\imgui_impl_opengl3.h" />
@@ -381,6 +379,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="E:\workspace\unity\CuddlyCat\src\CuddlyCat\ShaderCache.h" />
     <ClCompile Include="E:\workspace\unity\CuddlyCat\src\CuddlyCat\stb_image.cpp" />
     <ClInclude Include="E:\workspace\unity\CuddlyCat\src\CuddlyCat\stb_image.h" />
+    <ClCompile Include="E:\workspace\unity\CuddlyCat\src\CuddlyCat\Texture2D.cpp" />
+    <ClInclude Include="E:\workspace\unity\CuddlyCat\src\CuddlyCat\Texture2D.h" />
     <ClCompile Include="E:\workspace\unity\CuddlyCat\src\CuddlyCat\TextureCache.cpp" />
     <ClInclude Include="E:\workspace\unity\CuddlyCat\src\CuddlyCat\TextureCache.h" />
     <ClCompile Include="E:\workspace\unity\CuddlyCat\src\CuddlyCat\Timer.cpp" />

@@ -1,1 +1,16 @@
-﻿
+﻿  MeshRenderer.cpp
+  Transform.cpp
+  Component.cpp
+  Object.cpp
+  GameObject.cpp
+  Material.cpp
+..\..\src\CuddlyCat\Material.cpp(42): warning C4018: “<”: 有符号/无符号不匹配
+  Node.cpp
+..\..\src\CuddlyCat\Node.cpp(12): warning C4018: “<”: 有符号/无符号不匹配
+..\..\src\CuddlyCat\Node.cpp(19): warning C4018: “<”: 有符号/无符号不匹配
+  ObjLoader.cpp
+  Pass.cpp
+  Prefab.cpp
+  Scene.cpp
+  正在生成代码...
+  CuddlyCat.vcxproj -> E:\workspace\unity\CuddlyCat\build\src\Debug\CuddlyCat.exe

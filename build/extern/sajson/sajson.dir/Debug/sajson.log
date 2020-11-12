@@ -1,1 +1,3 @@
-﻿
+﻿  Building Custom Rule E:/workspace/unity/CuddlyCat/extern/sajson/CMakeLists.txt
+  sajson.cpp
+  sajson.vcxproj -> E:\workspace\unity\CuddlyCat\build\extern\sajson\Debug\sajson.lib

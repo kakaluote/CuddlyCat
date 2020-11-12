@@ -1,1 +1,7 @@
-﻿
+﻿  Building Custom Rule E:/workspace/unity/CuddlyCat/extern/rvo/CMakeLists.txt
+  Agent.cpp
+  KdTree.cpp
+  Obstacle.cpp
+  RVOSimulator.cpp
+  正在生成代码...
+  RVO.vcxproj -> E:\workspace\unity\CuddlyCat\build\extern\rvo\Debug\RVO.lib

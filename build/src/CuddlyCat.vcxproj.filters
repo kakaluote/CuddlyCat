@@ -41,6 +41,9 @@
     <ClCompile Include="E:\workspace\unity\CuddlyCat\src\CuddlyCat\stb_image.cpp">
       <Filter>CuddlyCat</Filter>
     </ClCompile>
+    <ClCompile Include="E:\workspace\unity\CuddlyCat\src\CuddlyCat\Texture2D.cpp">
+      <Filter>CuddlyCat</Filter>
+    </ClCompile>
     <ClCompile Include="E:\workspace\unity\CuddlyCat\src\CuddlyCat\TextureCache.cpp">
       <Filter>CuddlyCat</Filter>
     </ClCompile>
@@ -65,6 +68,18 @@
     <ClCompile Include="E:\workspace\unity\CuddlyCat\src\demo\DemoCtrl.cpp">
       <Filter>demo</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\CuddlyCat\component\MeshRenderer.cpp">
+      <Filter>CuddlyCat\component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\CuddlyCat\component\Transform.cpp">
+      <Filter>CuddlyCat\component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\CuddlyCat\core\Component.cpp">
+      <Filter>CuddlyCat\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\CuddlyCat\core\Object.cpp">
+      <Filter>CuddlyCat\core</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\src\CuddlyCat\GameObject.cpp">
       <Filter>CuddlyCat</Filter>
     </ClCompile>
@@ -85,21 +100,6 @@
     </ClCompile>
     <ClCompile Include="..\..\src\CuddlyCat\Scene.cpp">
       <Filter>CuddlyCat</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\CuddlyCat\Texture2D.cpp">
-      <Filter>CuddlyCat</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\CuddlyCat\component\MeshRenderer.cpp">
-      <Filter>CuddlyCat\component</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\CuddlyCat\component\Transform.cpp">
-      <Filter>CuddlyCat\component</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\CuddlyCat\core\Component.cpp">
-      <Filter>CuddlyCat\core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\CuddlyCat\core\Object.cpp">
-      <Filter>CuddlyCat\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +150,9 @@
     <ClInclude Include="E:\workspace\unity\CuddlyCat\src\CuddlyCat\stb_image.h">
       <Filter>CuddlyCat</Filter>
     </ClInclude>
+    <ClInclude Include="E:\workspace\unity\CuddlyCat\src\CuddlyCat\Texture2D.h">
+      <Filter>CuddlyCat</Filter>
+    </ClInclude>
     <ClInclude Include="E:\workspace\unity\CuddlyCat\src\CuddlyCat\TextureCache.h">
       <Filter>CuddlyCat</Filter>
     </ClInclude>
@@ -174,6 +177,21 @@
     <ClInclude Include="E:\workspace\unity\CuddlyCat\src\demo\DemoCtrl.h">
       <Filter>demo</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\CuddlyCat\component\MeshRenderer.h">
+      <Filter>CuddlyCat\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\CuddlyCat\component\Transform.h">
+      <Filter>CuddlyCat\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\CuddlyCat\core\Component.h">
+      <Filter>CuddlyCat\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\CuddlyCat\core\CoreDefine.h">
+      <Filter>CuddlyCat\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\CuddlyCat\core\Object.h">
+      <Filter>CuddlyCat\core</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\src\CuddlyCat\GameObject.h">
       <Filter>CuddlyCat</Filter>
     </ClInclude>
@@ -195,24 +213,6 @@
     <ClInclude Include="..\..\src\CuddlyCat\Scene.h">
       <Filter>CuddlyCat</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\CuddlyCat\Texture2D.h">
-      <Filter>CuddlyCat</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\CuddlyCat\component\MeshRenderer.h">
-      <Filter>CuddlyCat\component</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\CuddlyCat\component\Transform.h">
-      <Filter>CuddlyCat\component</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\CuddlyCat\core\Component.h">
-      <Filter>CuddlyCat\core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\CuddlyCat\core\CoreDefine.h">
-      <Filter>CuddlyCat\core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\CuddlyCat\core\Object.h">
-      <Filter>CuddlyCat\core</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="E:\workspace\unity\CuddlyCat\src\CMakeLists.txt" />
@@ -225,10 +225,10 @@
       <UniqueIdentifier>{F3D152CB-22EF-3FF8-97BC-BF0464ED92AF}</UniqueIdentifier>
     </Filter>
     <Filter Include="CuddlyCat\component">
-      <UniqueIdentifier>{799fb0ed-a6fb-4a33-bd84-6c0d2e163330}</UniqueIdentifier>
+      <UniqueIdentifier>{ed165c50-3163-4da6-a5f0-3cc195b0036f}</UniqueIdentifier>
     </Filter>
     <Filter Include="CuddlyCat\core">
-      <UniqueIdentifier>{91535b3f-26ea-498b-bab3-f2d900485400}</UniqueIdentifier>
+      <UniqueIdentifier>{eb97161b-4206-4a98-acf4-d3f547e232ef}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
