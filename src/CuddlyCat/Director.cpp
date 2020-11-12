@@ -18,11 +18,7 @@ Director* Director::getInstance()
 
 void Director::destroyInstance()
 {
-	if (s_SharedDirector != nullptr)
-	{
-		delete s_SharedDirector;
-		s_SharedDirector = nullptr;
-	}
+	CC_SAFE_DELETE(s_SharedDirector);
 }
 
 Director::Director():_deltaTime(0)

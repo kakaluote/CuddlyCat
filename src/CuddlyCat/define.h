@@ -13,6 +13,9 @@
 #define CC_CALLBACK_4(__selector__,__target__, ...) std::bind(&__selector__,__target__, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, ##__VA_ARGS__)
 
 
+#define CC_SAFE_DELETE(p)           do { if(p) { delete (p); (p) = nullptr; } } while(0)
+#define CC_SAFE_DELETE_ARRAY(p)     do { if(p) { delete[] (p); (p) = nullptr; } } while(0)
+
 #if defined _DEBUG
 #define GL_CHECK(x)						\
 			{									\

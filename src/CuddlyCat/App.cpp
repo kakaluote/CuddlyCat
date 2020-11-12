@@ -18,6 +18,7 @@ App::~App()
 	FileSystem::destroyInstance();
 	TextureCache::destroyInstance();
 	ShaderCache::destroyInstance();
+	ObjLoader::destroyInstance();
 
 	ImGui_ImplOpenGL3_Shutdown();
 	ImGui_ImplGlfw_Shutdown();

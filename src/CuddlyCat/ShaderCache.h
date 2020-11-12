@@ -3,7 +3,6 @@
 #include "ShaderCache.h"
 #include <string>
 #include <vector>
-#include "Texture.h"
 #include "Shader.h"
 
 

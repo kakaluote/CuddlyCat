@@ -11,20 +11,17 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include "Texture.h"
-
-#include "assimp/Importer.hpp"
-#include "assimp/scene.h"
-#include "assimp/postprocess.h"
-#include "Shader.h"
 #include "mesh.h"
-#include "Camera.h"
 #include "Material.h"
+#include "Camera.h"
 
 using namespace std;
 
 NS_CC_BEGIN
 
+
+class Material;
+class Mesh;
 
 class Model 
 {
@@ -32,14 +29,14 @@ public:
 	Model();
 	~Model();
 
-	bool init();
-	bool init2();
-	bool initByGeometryType();
-	bool initByModelFile(const string& model_file);
-	void draw(const Camera& camera, const glm::vec3& lightPos, const glm::vec3& lightColor);
+	void setMesh(Mesh* m) {
+		_mesh = m;
+	}
+	void setMaterial(Material* m) {
+		_material = m;
+	}
 
-	void setShader(const std::string& vertexPath, const std::string& fragmentPath);
-	void addTexture(const std::string& name, const std::string& path);
+	void render(const Camera& camera, const glm::vec3& lightPos, const glm::vec3& lightColor);
 
 	const glm::vec3& pos() {
 		return _pos;
@@ -72,7 +69,9 @@ public:
 		_scale.z = s;
 	}
 
-	glm::mat4 getTransformMat() {
+private:
+	glm::mat4 getTransformMat() 
+	{
 		glm::mat4 mat = glm::mat4(1.0f);
 		mat = glm::translate(mat, _pos);
 		mat = glm::scale(mat, _scale);
@@ -84,18 +83,10 @@ public:
 		return mat;
 	}
 
-	
-private:
-	void loadModel(string const &path);
-	void processNode(aiNode *node, const aiScene *scene);
-	void processMesh(aiMesh *mesh, const aiScene *scene);
-	vector<TextureInfo> loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName);
 
 private:
-	string _modelFileDir;
-	vector<Mesh>_meshs;
-	Shader* _shader;
-	Material _material;
+	Mesh* _mesh;
+	Material* _material;
 
 	glm::vec3 _pos;
 	glm::vec3 _rot;

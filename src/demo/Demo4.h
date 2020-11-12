@@ -1,10 +1,8 @@
 #pragma once
 #include "CuddlyCat/define.h"
 #include "BaseDemo.h"
-#include "CuddlyCat/Shader.h"
 #include "CuddlyCat/Camera.h"
-#include "CuddlyCat/Texture.h"
-#include "Model.h"
+#include "Node.h"
 
 USING_NS_CC
 
@@ -44,6 +42,6 @@ private:
 
 	Camera _camera;
 	glm::vec3 _lightPos;
-	std::vector<Model*> _models;
+	std::vector<Node*> _nodes;
 };
 

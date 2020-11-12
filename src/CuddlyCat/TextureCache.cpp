@@ -17,11 +17,7 @@ TextureCache* TextureCache::getInstance()
 
 void TextureCache::destroyInstance()
 {
-	if (s_SharedTextureCache != nullptr)
-	{
-		delete s_SharedTextureCache;
-		s_SharedTextureCache = nullptr;
-	}
+	CC_SAFE_DELETE(s_SharedTextureCache);
 }
 
 TextureCache::TextureCache()
@@ -42,18 +38,18 @@ bool TextureCache::init()
 	return true;
 }
 
-unsigned int TextureCache::loadByFile(const std::string& path)
+Texture2D* TextureCache::loadByFile(const std::string& path)
 {
 	for (int i = 0; i < _textures.size(); i++) {
 		if (_textures[i]->getPath() == path) {
-			return _textures[i]->id();
+			return _textures[i];
 		}
 	}
 
-	Texture* texture = new Texture;
+	Texture2D* texture = new Texture2D;
 	auto id = texture->initByFile(path);
 	_textures.push_back(texture);
-	return id;
+	return texture;
 }
 
 

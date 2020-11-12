@@ -6,48 +6,32 @@
 #include <vector>
 #include <string>
 #include "Shader.h"
+#include "ObjLoader.h"
 NS_CC_BEGIN
 
-struct VertexData {
-	glm::vec3 position;
-	glm::vec3 normal;
-	glm::vec2 texCoords;
-	glm::vec3 tangent;
-	glm::vec3 bitangent;
-};
-
-struct TextureInfo {
-	unsigned int id;
-	std::string name;
-	std::string path;
-};
+struct RawVertexData;
 
 class Mesh
 {
 public:
-	Mesh(const std::vector<VertexData>& vertices, 
-		const std::vector<unsigned int>& indices, 
-		const std::vector<TextureInfo>& textures);
 	Mesh();
 	~Mesh();
 
-	void draw(Shader &shader);
-	void prepareGL();
+	void initByData(const std::vector<RawVertexData>& vertices,
+		const std::vector<unsigned int>& indices);
 
-	static Mesh initPlane();
-	static Mesh initBox();
+	void initPlane();
+	void initBox();
 
-	void addTexture(const std::string& name, const std::string& path);
+	void render();
 	
 private:
-	std::vector<VertexData> _vertices;
-	std::vector<unsigned int> _indices;
-
 	unsigned int _VAO;
 	unsigned int _VBO;
 	unsigned int _EBO;
 
-	std::vector<TextureInfo> _textures;
+	unsigned int _vertexNum;
+	unsigned int _indexNum;
 };
 
 NS_CC_END

@@ -1,18 +1,17 @@
 #pragma once
 
 #include "define.h"
-#include "core/Object.h"
 using namespace std;
 
 NS_CC_BEGIN
 
 
 
-class GameObject:public Object
+class Prefab
 {
 public:
-	GameObject();
-	~GameObject();
+	Prefab();
+	~Prefab();
 
 private:
 };

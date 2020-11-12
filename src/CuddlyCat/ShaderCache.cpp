@@ -17,11 +17,7 @@ ShaderCache* ShaderCache::getInstance()
 
 void ShaderCache::destroyInstance()
 {
-	if (s_SharedShaderCache != nullptr)
-	{
-		delete s_SharedShaderCache;
-		s_SharedShaderCache = nullptr;
-	}
+	CC_SAFE_DELETE(s_SharedShaderCache);
 }
 
 ShaderCache::ShaderCache()

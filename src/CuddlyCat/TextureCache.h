@@ -3,7 +3,7 @@
 #include "TextureCache.h"
 #include <string>
 #include <vector>
-#include "Texture.h"
+#include "Texture2D.h"
 
 
 NS_CC_BEGIN
@@ -19,10 +19,10 @@ public:
 
 	bool init();
 
-	unsigned int loadByFile(const std::string& path);
+	Texture2D* loadByFile(const std::string& path);
 
 private:
-	std::vector<Texture*> _textures;
+	std::vector<Texture2D*> _textures;
 };
 
 NS_CC_END

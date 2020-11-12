@@ -1,4 +1,4 @@
-#include "Texture.h"
+#include "Texture2D.h"
 #include "CuddlyCat/stb_image.h"
 #include "glad/gl.h"
 #include <iostream>
@@ -6,18 +6,18 @@
 NS_CC_BEGIN
 
 
-Texture::Texture():_textureID(0)
+Texture2D::Texture2D():_textureID(0)
 {
 }
 
-Texture::~Texture()
+Texture2D::~Texture2D()
 {
 	if (_textureID != 0) {
 		GL_CHECK(glDeleteTextures(1, &_textureID));
 	}
 }
 
-unsigned int Texture::initByFile(const std::string& path)
+unsigned int Texture2D::initByFile(const std::string& path)
 {
 	_path = path;
 
@@ -43,16 +43,22 @@ unsigned int Texture::initByFile(const std::string& path)
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-		stbi_image_free(data);
 	}
 	else
 	{
 		std::cout << "Texture failed to load at path: " << path << std::endl;
-		stbi_image_free(data);
 	}
 
+	stbi_image_free(data);
+
 	return _textureID;
+}
+
+
+void Texture2D::use(int idx)
+{
+	glActiveTexture(GL_TEXTURE0 + idx);
+	glBindTexture(GL_TEXTURE_2D, _textureID);
 }
 
 NS_CC_END

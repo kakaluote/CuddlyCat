@@ -1,12 +1,13 @@
 #pragma once
 
 #include "define.h"
+#include "core/Component.h"
 
 NS_CC_BEGIN
 
 
 
-class Transform
+class Transform :public Component
 {
 public:
 	Transform();

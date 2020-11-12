@@ -17,11 +17,7 @@ FileSystem* FileSystem::getInstance()
 
 void FileSystem::destroyInstance()
 {
-	if (s_SharedFileSystem != nullptr)
-	{
-		delete s_SharedFileSystem;
-		s_SharedFileSystem = nullptr;
-	}
+	CC_SAFE_DELETE(s_SharedFileSystem);
 }
 
 FileSystem::FileSystem()

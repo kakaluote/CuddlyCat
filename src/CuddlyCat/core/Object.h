@@ -1,16 +1,17 @@
 #pragma once
 
 #include "define.h"
+using namespace std;
 
 NS_CC_BEGIN
 
 
 
-class BaseComponent
+class Object
 {
 public:
-	BaseComponent();
-	~BaseComponent();
+	Object();
+	~Object();
 
 private:
 };

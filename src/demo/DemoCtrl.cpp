@@ -1,7 +1,6 @@
 #include "DemoCtrl.h"
 #include "Demo1.h"
 #include "Demo2.h"
-#include "Demo3.h"
 #include "Demo4.h"
 
 static DemoCtrl *s_SharedDemoCtrl = nullptr;
@@ -63,9 +62,6 @@ BaseDemo* DemoCtrl::getDemo(int idx)
 	}
 	else if (idx == 2) {
 		_demoHandler = new Demo2();
-	}
-	else if (idx == 3) {
-		_demoHandler = new Demo3();
 	}
 	else if (idx == 4) {
 		_demoHandler = new Demo4();

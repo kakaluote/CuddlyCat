@@ -11,6 +11,7 @@
 #include "CuddlyCat/InputManager.h"
 #include <functional>
 #include "CuddlyCat/Director.h"
+#include "ObjLoader.h"
 
 
 Demo4::Demo4()
@@ -30,8 +31,8 @@ Demo4::Demo4()
 
 Demo4::~Demo4()
 {
-	for (int i = 0; i < _models.size(); i++) {
-		delete _models[i];
+	for (int i = 0; i < _nodes.size(); i++) {
+		delete _nodes[i];
 	}
 }
 
@@ -43,16 +44,24 @@ bool Demo4::init()
 
 void Demo4::prepare()
 {
-	Model* model;
+	Node* node;
 
-	// backpack  rock  planet cyborg  nanosuit
-	model = new Model;
-	_models.push_back(model);
+	node = ObjLoader::getInstance()->loadModel(FileSystem::getInstance()->getPath("Resources/objects/rock/rock.obj"));
+	if (node)
+	{
+		_nodes.push_back(node);
+	}
 
-	
 
-	model->initByModelFile(FileSystem::getInstance()->getPath("Resources/objects/rock/rock.obj"));
-	model->setShader("../shader/myshader/simple4.vs", "../shader/myshader/simple4.fs");
+	//Model* model;
+
+	//// backpack  rock  planet cyborg  nanosuit
+	//model = new Model;
+	//_models.push_back(model);
+
+
+	//model->initByModelFile(FileSystem::getInstance()->getPath("Resources/objects/rock/rock.obj"));
+	//model->setShader("../shader/myshader/simple4.vs", "../shader/myshader/simple4.fs");
 	//model->setPos(0, -2, 0);
 	//model->setScale(2);
 	//model->setRot(0, 90, 0);
@@ -107,8 +116,8 @@ void Demo4::render()
 	glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
-	for (int i = 0; i < _models.size(); i++) {
-		_models[i]->draw(_camera,_lightPos, glm::vec3(1.0f,1.0f,1.0f));
+	for (int i = 0; i < _nodes.size(); i++) {
+		_nodes[i]->render(_camera, _lightPos, glm::vec3(1.0f, 1.0f, 1.0f));
 	}
 }
 
