@@ -43,8 +43,8 @@ set(CuddlyCat_SOURCE_FILES
 	CuddlyCat/ShaderCache.h
 	CuddlyCat/stb_image.cpp
 	CuddlyCat/stb_image.h
-	CuddlyCat/Texture.cpp
-	CuddlyCat/Texture.h
+	CuddlyCat/Texture2D.cpp
+	CuddlyCat/Texture2D.h
 	CuddlyCat/TextureCache.cpp
 	CuddlyCat/TextureCache.h
 	CuddlyCat/Timer.cpp
@@ -60,8 +60,6 @@ set(Demo_SOURCE_FILES
 	demo/Demo1.h
 	demo/Demo2.cpp
 	demo/Demo2.h
-	demo/Demo3.cpp
-	demo/Demo3.h
 	demo/Demo4.cpp
 	demo/Demo4.h
 	demo/DemoCtrl.cpp

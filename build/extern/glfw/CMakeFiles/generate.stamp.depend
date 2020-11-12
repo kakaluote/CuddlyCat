@@ -1,0 +1,9 @@
+# CMake generation dependency list for this directory.
+D:/Program Files/CMake/share/cmake-3.17/Modules/CheckCSourceCompiles.cmake
+D:/Program Files/CMake/share/cmake-3.17/Modules/CheckIncludeFile.c.in
+D:/Program Files/CMake/share/cmake-3.17/Modules/CheckIncludeFile.cmake
+D:/Program Files/CMake/share/cmake-3.17/Modules/CheckLibraryExists.cmake
+D:/Program Files/CMake/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake
+D:/Program Files/CMake/share/cmake-3.17/Modules/FindPackageMessage.cmake
+D:/Program Files/CMake/share/cmake-3.17/Modules/FindThreads.cmake
+E:/workspace/unity/CuddlyCat/extern/glfw/CMakeLists.txt

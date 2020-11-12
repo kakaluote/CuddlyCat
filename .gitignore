@@ -1,2 +1,5 @@
-build
+build/.vs
+build/Debug
+build/Release
+build/Win32
 src/Resources
