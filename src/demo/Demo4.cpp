@@ -13,6 +13,7 @@
 #include "CuddlyCat/Director.h"
 #include "ObjLoader.h"
 
+#include "yaml-cpp/yaml.h"
 
 Demo4::Demo4()
 {
@@ -39,6 +40,7 @@ Demo4::~Demo4()
 bool Demo4::init()
 {
 	BaseDemo::init();
+
 	return true;
 }
 
