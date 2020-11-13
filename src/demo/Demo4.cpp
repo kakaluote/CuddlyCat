@@ -14,6 +14,10 @@
 #include "ObjLoader.h"
 
 #include "yaml-cpp/yaml.h"
+#include "spdlog/spdlog.h"
+#include <nlohmann/json.hpp>
+#include <iosfwd>
+using json = nlohmann::json;
 
 Demo4::Demo4()
 {
@@ -40,6 +44,60 @@ Demo4::~Demo4()
 bool Demo4::init()
 {
 	BaseDemo::init();
+
+	YAML::Node config = YAML::LoadFile("Resources/config.yaml");
+	std::cout << config << std::endl;
+
+	spdlog::info("Welcome to spdlog!");
+	spdlog::error("Some error message with arg: {}", 1);
+
+	spdlog::warn("Easy padding in numbers like {:08d}", 12);
+	spdlog::critical("Support for int: {0:d};  hex: {0:x};  oct: {0:o}; bin: {0:b}", 42);
+	spdlog::info("Support for floats {:03.2f}", 1.23456);
+	spdlog::info("Positional args are {1} {0}..", "too", "supported");
+	spdlog::info("{:<30}", "left aligned");
+
+	spdlog::set_level(spdlog::level::debug); // Set global log level to debug
+	spdlog::debug("This message should be displayed..");
+
+	// change log pattern
+	spdlog::set_pattern("[%H:%M:%S %z] [%n] [%^---%L---%$] [thread %t] %v");
+
+	// Compile time log levels
+	// define SPDLOG_ACTIVE_LEVEL to desired level
+	SPDLOG_TRACE("Some trace message with param {}", 42);
+	SPDLOG_DEBUG("Some debug message");
+
+	json j = {
+	  {"pi", 3.141},
+	  {"happy", true},
+	  {"name", "Niels"},
+	  {"nothing", nullptr},
+	  {"answer", {
+		{"everything", 42}
+	  }},
+	  {"list", {1, 0, 2}},
+	  {"object", {
+		{"currency", "USD"},
+		{"value", 42.99}
+	  }}
+	};
+	spdlog::debug(j.dump());
+
+	std::ofstream f1("Resources/test.json");
+	if (f1)
+	{
+		f1 << j.dump();
+		f1.close();
+	}
+
+	/*std::ifstream f2("Resources/test.json");
+	if (f2)
+	{
+		f2.read()
+	}
+	json j2;
+	j2.parse()*/
 
 	return true;
 }
