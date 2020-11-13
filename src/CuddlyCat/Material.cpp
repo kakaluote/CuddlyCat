@@ -41,8 +41,9 @@ void Material::use(const glm::mat4& model, const glm::mat4& view, const glm::mat
 
 	for (int i = 0; i < _textures.size(); i++) 
 	{
-		_textures[i]->use(i);
-		_shader->setInt(_textures[i]->getName().c_str(), _textures[i]->id());
+		glActiveTexture(GL_TEXTURE0 + i);
+		glBindTexture(GL_TEXTURE_2D, _textures[i]->id());
+		_shader->setInt(_textures[i]->getName().c_str(), i);
 	}
 }
 

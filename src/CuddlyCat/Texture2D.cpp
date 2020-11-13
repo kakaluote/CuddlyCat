@@ -43,6 +43,8 @@ unsigned int Texture2D::initByFile(const std::string& path)
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+		std::cout << "Texture load: " << path <<"  "<< _textureID << std::endl;
 	}
 	else
 	{
@@ -52,13 +54,6 @@ unsigned int Texture2D::initByFile(const std::string& path)
 	stbi_image_free(data);
 
 	return _textureID;
-}
-
-
-void Texture2D::use(int idx)
-{
-	glActiveTexture(GL_TEXTURE0 + idx);
-	glBindTexture(GL_TEXTURE_2D, _textureID);
 }
 
 NS_CC_END

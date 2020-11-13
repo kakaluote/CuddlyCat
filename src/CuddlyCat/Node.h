@@ -18,15 +18,21 @@ public:
 	Node();
 	~Node();
 
-	void addModel(Model* m)
+	void setModel(Model* m)
 	{
-		_models.push_back(m);
+		_model = m;
 	}
 
 	void render(const Camera& camera, const glm::vec3& lightPos, const glm::vec3& lightColor);
 
+	void addChild(Node* node)
+	{
+		_children.push_back(node);
+	}
+
 private:
-	std::vector<Model*> _models;
+	Model* _model;
+	std::vector<Node*> _children;
 };
 
 

@@ -26,8 +26,6 @@ public:
 		return _path;
 	}
 
-	void use(int idx);
-
 	const std::string& getName() const
 	{
 		return _name;

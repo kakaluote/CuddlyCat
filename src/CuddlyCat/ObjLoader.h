@@ -55,12 +55,12 @@ public:
 	ObjLoader();
 	~ObjLoader();
 
-	Node* loadModel(const std::string& path);
+	Node* loadModel(const std::string& path, const std::string& texturePath);
 private:
-	void processNode(aiNode *node, const aiScene *scene);
-	void processMesh(aiMesh *mesh, const aiScene *scene, Mesh* m);
-	void processMaterial(aiMesh * mesh, const aiScene *scene, Material* m);
-	void loadMaterialTextures(aiMaterial *mat, aiTextureType type, Material* m);
+	Node* processNode(aiNode *node, const aiScene *scene, const std::string& texturePath);
+	Mesh* processMesh(aiMesh * mesh, const aiScene * scene);
+	Material* processMaterial(aiMesh * mesh, const aiScene *scene, const std::string& texturePath);
+	void loadMaterialTextures(aiMaterial *mat, aiTextureType type, Material* m, const std::string& texturePath);
 
 private:
 };

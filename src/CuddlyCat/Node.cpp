@@ -2,22 +2,30 @@
 
 NS_CC_BEGIN
 
-Node::Node()
+Node::Node():_model(nullptr)
 {
 }
 
 
 Node::~Node()
 {
-	for (int i = 0; i < _models.size(); i++) {
-		delete _models[i];
+	CC_SAFE_DELETE(_model);
+	for (auto it = _children.begin(); it != _children.end(); ++it)
+	{
+		delete *it;
 	}
+	_children.clear();
 }
 
 void Node::render(const Camera& camera, const glm::vec3& lightPos, const glm::vec3& lightColor)
 {
-	for (int i = 0; i < _models.size(); i++) {
-		_models[i]->render(camera, lightPos, lightColor);
+	if (_model)
+	{
+		_model->render(camera, lightPos, lightColor);
+	}
+	for (auto it = _children.begin(); it != _children.end(); ++it)
+	{
+		(*it)->render(camera, lightPos, lightColor);
 	}
 }
 

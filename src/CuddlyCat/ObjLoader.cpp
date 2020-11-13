@@ -38,7 +38,7 @@ ObjLoader::~ObjLoader()
 
 }
 
-Node* ObjLoader::loadModel(const std::string& path)
+Node* ObjLoader::loadModel(const std::string& path, const std::string& texturePath)
 {
 	Assimp::Importer importer;
 	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
@@ -48,15 +48,13 @@ Node* ObjLoader::loadModel(const std::string& path)
 		return nullptr;
 	}
 
-	Node* node = new Node;
-
-	processNode(scene->mRootNode, scene);
-
-	return node;
+	return processNode(scene->mRootNode, scene, texturePath);
 }
 
-void ObjLoader::processNode(aiNode * node, const aiScene * scene)
+Node* ObjLoader::processNode(aiNode * node, const aiScene * scene, const std::string& texturePath)
 {
+	Node* root = new Node;
+
 	Timer t;
 	for (unsigned int i = 0; i < node->mNumMeshes; i++)
 	{
@@ -65,14 +63,17 @@ void ObjLoader::processNode(aiNode * node, const aiScene * scene)
 		aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
 
 		t.tik();
-		
 
-		Mesh* m = new Mesh;
-		Material* mat = new Material;
+		Mesh* m = processMesh(mesh, scene);
+		Material* mat = processMaterial(mesh, scene, texturePath);
 
-		processMesh(mesh, scene, m);
-		processMaterial(mesh, scene, mat);
+		Model* model = new Model;
+		model->setMesh(m);
+		model->setMaterial(mat);
 
+		Node* n = new Node;
+		n->setModel(model);
+		root->addChild(n);
 
 		cout << "processMesh " << i + 1 << "/" << node->mNumMeshes << ", name " << mesh->mName.C_Str() << ", time " << t.tok() << endl;
 	}
@@ -80,11 +81,13 @@ void ObjLoader::processNode(aiNode * node, const aiScene * scene)
 	for (unsigned int i = 0; i < node->mNumChildren; i++)
 	{
 		cout << "processNode " << i + 1 << "/" << node->mNumChildren << ", name " << node->mChildren[i]->mName.C_Str() << endl;
-		processNode(node->mChildren[i], scene);
+		Node* childNode = processNode(node->mChildren[i], scene, texturePath);
+		root->addChild(childNode);
 	}
+	return root;
 }
 
-void ObjLoader::processMesh(aiMesh * mesh, const aiScene * scene, Mesh* m)
+Mesh* ObjLoader::processMesh(aiMesh * mesh, const aiScene * scene)
 {
 	vector<RawVertexData> vertices;
 	vector<unsigned int> indices;
@@ -144,11 +147,13 @@ void ObjLoader::processMesh(aiMesh * mesh, const aiScene * scene, Mesh* m)
 			indices.push_back(face.mIndices[j]);
 	}
 
+	Mesh* m = new Mesh;
 	m->initByData(vertices, indices);
+	return m;
 }
 
 
-void ObjLoader::processMaterial(aiMesh * mesh, const aiScene *scene, Material* m)
+Material* ObjLoader::processMaterial(aiMesh * mesh, const aiScene *scene, const std::string& texturePath)
 {
 	aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
 	/* we assume a convention for sampler names in the shaders. Each diffuse texture should be named
@@ -158,39 +163,44 @@ void ObjLoader::processMaterial(aiMesh * mesh, const aiScene *scene, Material* m
 	 specular: texture_specularN
 	 normal: texture_normalN*/
 
-	 //1. diffuse maps
-	loadMaterialTextures(material, aiTextureType_DIFFUSE, m);
-	// 2. specular maps
-	loadMaterialTextures(material, aiTextureType_SPECULAR, m);
-	// 3. normal maps
-	loadMaterialTextures(material, aiTextureType_HEIGHT, m);
-	// 4. height maps
-	loadMaterialTextures(material, aiTextureType_AMBIENT, m);
+	Material* m = new Material;
+	m->setShader("../shader/myshader/simple4.vs", "../shader/myshader/simple4.fs");
 
+	 //1. diffuse maps
+	loadMaterialTextures(material, aiTextureType_DIFFUSE, m, texturePath);
+	// 2. specular maps
+	loadMaterialTextures(material, aiTextureType_SPECULAR, m, texturePath);
+	// 3. normal maps
+	loadMaterialTextures(material, aiTextureType_HEIGHT, m, texturePath);
+	// 4. height maps
+	loadMaterialTextures(material, aiTextureType_AMBIENT, m, texturePath);
+
+	return m;
 }
 
-void ObjLoader::loadMaterialTextures(aiMaterial *mat, aiTextureType type, Material* m)
+void ObjLoader::loadMaterialTextures(aiMaterial *mat, aiTextureType type, Material* m, const std::string& texturePath)
 {
 	for (unsigned int i = 0; i < mat->GetTextureCount(type); i++)
 	{
 		aiString str;
 		mat->GetTexture(type, i, &str);
+		std::string path = texturePath + str.C_Str();
 
 		if (type == aiTextureType_DIFFUSE)
 		{
-			m->addTexture(str.C_Str(), "texture_diffuse" + std::to_string(i + 1));
+			m->addTexture(path, "texture_diffuse" + std::to_string(i + 1));
 		}
 		else if (type == aiTextureType_SPECULAR)
 		{
-			m->addTexture(str.C_Str(), "texture_specular" + std::to_string(i + 1));
+			m->addTexture(path, "texture_specular" + std::to_string(i + 1));
 		}
 		else if (type == aiTextureType_HEIGHT)
 		{
-			m->addTexture(str.C_Str(), "texture_normal" + std::to_string(i + 1));
+			m->addTexture(path, "texture_normal" + std::to_string(i + 1));
 		}
 		else if (type == aiTextureType_AMBIENT)
 		{
-			m->addTexture(str.C_Str(), "texture_height" + std::to_string(i + 1));
+			m->addTexture(path, "texture_height" + std::to_string(i + 1));
 		}
 	}
 }

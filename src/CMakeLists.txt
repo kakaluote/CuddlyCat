@@ -21,8 +21,6 @@ set(CuddlyCatExe_SOURCE_FILES
 set(CuddlyCat_SOURCE_FILES 
 	CuddlyCat/App.cpp
 	CuddlyCat/App.h
-	CuddlyCat/BasicModel.cpp
-	CuddlyCat/BasicModel.h
 	CuddlyCat/Camera.cpp
 	CuddlyCat/Camera.h
 	CuddlyCat/const.h
