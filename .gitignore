@@ -1,2 +1,7 @@
-build
+build/.vs
+build/bin
+build/extern/glad/glad.dir
+build/extern/glfw/glfw.dir
+build/extern/imgui/imgui.dir
+build/src/CuddlyCat.dir
 src/Resources

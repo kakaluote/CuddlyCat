@@ -106,7 +106,7 @@ void Demo4::prepare()
 {
 	Node* node;
 
-	node = ObjLoader::getInstance()->loadModel(FileSystem::getInstance()->getPath("Resources/objects/nanosuit/nanosuit.obj"), "Resources/objects/nanosuit/");
+	node = ObjLoader::getInstance()->loadModel(FileSystem::getInstance()->getPath("Resources/objects/rock/rock.obj"), "Resources/objects/rock/");
 	if (node)
 	{
 		_nodes.push_back(node);

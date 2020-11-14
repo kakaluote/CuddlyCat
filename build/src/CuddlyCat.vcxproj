@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A34E9055-89FF-383F-A638-1CB625FC4865}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>CuddlyCat</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/workspace/unity/CuddlyCat/src</LocalDebuggerWorkingDirectory>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CuddlyCat.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CuddlyCat_d</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/workspace/unity/CuddlyCat/src</LocalDebuggerWorkingDirectory>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CuddlyCat.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CuddlyCat</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\src;..\..\src\CuddlyCat;..\..\extern\rvo;..\..\extern\glfw\include;..\..\extern;..\..\extern\glad\include;..\..\src\extern;..\..\src\extern\spdlog\include;..\..\src\extern\yamlcpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\workspace\unity\CuddlyCat\src;E:\workspace\unity\CuddlyCat\src\CuddlyCat;E:\workspace\unity\CuddlyCat\extern\rvo;E:\workspace\unity\CuddlyCat\extern\glfw\include;E:\workspace\unity\CuddlyCat\extern\imgui\..;E:\workspace\unity\CuddlyCat\extern\sajson\..;E:\workspace\unity\CuddlyCat\extern\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\workspace\unity\CuddlyCat\src;E:\workspace\unity\CuddlyCat\src\CuddlyCat;E:\workspace\unity\CuddlyCat\extern\rvo;E:\workspace\unity\CuddlyCat\extern\glfw\include;E:\workspace\unity\CuddlyCat\extern\imgui\..;E:\workspace\unity\CuddlyCat\extern\sajson\..;E:\workspace\unity\CuddlyCat\extern\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>../../lib/glfwd.lib;../../lib/gladd.lib;../../lib/imguid.lib;../../lib/assimp-vc141-mtd.lib;../../lib/spdlogd.lib;../../lib/libyaml-cppmdd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>../bin/CuddlyCat_d.lib</ImportLibrary>
+      <ProgramDataBaseFile>../bin/CuddlyCat_d.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\src;..\..\src\CuddlyCat;..\..\extern\rvo;..\..\extern\glfw\include;..\..\extern;..\..\extern\glad\include;..\..\src\extern;..\..\src\extern\spdlog\include;..\..\src\extern\yamlcpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\workspace\unity\CuddlyCat\src;E:\workspace\unity\CuddlyCat\src\CuddlyCat;E:\workspace\unity\CuddlyCat\extern\rvo;E:\workspace\unity\CuddlyCat\extern\glfw\include;E:\workspace\unity\CuddlyCat\extern\imgui\..;E:\workspace\unity\CuddlyCat\extern\sajson\..;E:\workspace\unity\CuddlyCat\extern\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\workspace\unity\CuddlyCat\src;E:\workspace\unity\CuddlyCat\src\CuddlyCat;E:\workspace\unity\CuddlyCat\extern\rvo;E:\workspace\unity\CuddlyCat\extern\glfw\include;E:\workspace\unity\CuddlyCat\extern\imgui\..;E:\workspace\unity\CuddlyCat\extern\sajson\..;E:\workspace\unity\CuddlyCat\extern\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>../../lib/glfw.lib;../../lib/glad.lib;../../lib/imgui.lib;../../lib/assimp-vc141-mt.lib;../../lib/spdlog.lib;../../lib/libyaml-cppmd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>../bin/CuddlyCat.lib</ImportLibrary>
+      <ProgramDataBaseFile>../bin/CuddlyCat.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\AStar.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\App.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\Camera.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\component\MeshRenderer.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\component\Transform.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\core\Component.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\core\Object.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\Director.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\FileSystem.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\GameObject.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\InputManager.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\Material.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\Mesh.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\Model.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\Node.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\ObjLoader.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\Pass.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\Prefab.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\Scene.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\Shader.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\ShaderCache.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\stb_image.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\Texture2D.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\TextureCache.cpp" />
+    <ClCompile Include="..\..\src\CuddlyCat\Timer.cpp" />
+    <ClCompile Include="..\..\src\demo\BaseDemo.cpp" />
+    <ClCompile Include="..\..\src\demo\Demo.cpp" />
+    <ClCompile Include="..\..\src\demo\Demo1.cpp" />
+    <ClCompile Include="..\..\src\demo\Demo2.cpp" />
+    <ClCompile Include="..\..\src\demo\Demo4.cpp" />
+    <ClCompile Include="..\..\src\demo\DemoCtrl.cpp" />
+    <ClCompile Include="..\..\src\draw.cpp" />
+    <ClCompile Include="..\..\src\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\..\src\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="..\..\src\main.cpp" />
+    <ClCompile Include="..\..\src\PathFindSim.cpp" />
+    <ClCompile Include="..\..\src\util.cpp" />
+    <ClInclude Include="..\..\src\AStar.h" />
+    <ClInclude Include="..\..\src\b2_math.h" />
+    <ClInclude Include="..\..\src\b2_settings.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\App.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\Camera.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\component\MeshRenderer.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\component\Transform.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\const.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\core\Component.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\core\CoreDefine.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\core\Object.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\define.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\Director.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\FileSystem.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\GameObject.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\InputManager.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\Material.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\Mesh.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\Model.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\Node.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\ObjLoader.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\Pass.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\Prefab.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\Scene.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\Shader.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\ShaderCache.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\stb_image.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\Texture2D.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\TextureCache.h" />
+    <ClInclude Include="..\..\src\CuddlyCat\Timer.h" />
+    <ClInclude Include="..\..\src\demo\BaseDemo.h" />
+    <ClInclude Include="..\..\src\demo\Demo.h" />
+    <ClInclude Include="..\..\src\demo\Demo1.h" />
+    <ClInclude Include="..\..\src\demo\Demo2.h" />
+    <ClInclude Include="..\..\src\demo\Demo4.h" />
+    <ClInclude Include="..\..\src\demo\DemoCtrl.h" />
+    <ClInclude Include="..\..\src\draw.h" />
+    <ClInclude Include="..\..\src\imgui_impl_glfw.h" />
+    <ClInclude Include="..\..\src\imgui_impl_opengl3.h" />
+    <ClInclude Include="..\..\src\PathFindSim.h" />
+    <ClInclude Include="..\..\src\util.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="E:\workspace\unity\CuddlyCat\build\extern\glad\glad.vcxproj">
+      <Project>{8FD289B5-4110-3444-90C1-58538FB1A917}</Project>
+      <Name>glad</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\workspace\unity\CuddlyCat\build\extern\glfw\glfw.vcxproj">
+      <Project>{CF6A7D75-9473-3672-B245-9A8F193B7477}</Project>
+      <Name>glfw</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\workspace\unity\CuddlyCat\build\extern\imgui\imgui.vcxproj">
+      <Project>{1DAB2587-FB3C-3EA9-B90C-A380A14041F6}</Project>
+      <Name>imgui</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

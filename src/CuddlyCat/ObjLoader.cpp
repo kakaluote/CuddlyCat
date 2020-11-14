@@ -164,7 +164,7 @@ Material* ObjLoader::processMaterial(aiMesh * mesh, const aiScene *scene, const 
 	 normal: texture_normalN*/
 
 	Material* m = new Material;
-	m->setShader("../shader/myshader/simple4.vs", "../shader/myshader/simple4.fs");
+	m->setShader("../../shader/myshader/simple4.vs", "../../shader/myshader/simple4.fs");
 
 	 //1. diffuse maps
 	loadMaterialTextures(material, aiTextureType_DIFFUSE, m, texturePath);

@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1082
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CuddlyCat", "src\CuddlyCat.vcxproj", "{A34E9055-89FF-383F-A638-1CB625FC4865}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8FD289B5-4110-3444-90C1-58538FB1A917} = {8FD289B5-4110-3444-90C1-58538FB1A917}
+		{CF6A7D75-9473-3672-B245-9A8F193B7477} = {CF6A7D75-9473-3672-B245-9A8F193B7477}
+		{1DAB2587-FB3C-3EA9-B90C-A380A14041F6} = {1DAB2587-FB3C-3EA9-B90C-A380A14041F6}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glad", "extern\glad\glad.vcxproj", "{8FD289B5-4110-3444-90C1-58538FB1A917}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glfw", "extern\glfw\glfw.vcxproj", "{CF6A7D75-9473-3672-B245-9A8F193B7477}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imgui", "extern\imgui\imgui.vcxproj", "{1DAB2587-FB3C-3EA9-B90C-A380A14041F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A34E9055-89FF-383F-A638-1CB625FC4865}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A34E9055-89FF-383F-A638-1CB625FC4865}.Debug|Win32.Build.0 = Debug|Win32
+		{A34E9055-89FF-383F-A638-1CB625FC4865}.Release|Win32.ActiveCfg = Release|Win32
+		{A34E9055-89FF-383F-A638-1CB625FC4865}.Release|Win32.Build.0 = Release|Win32
+		{8FD289B5-4110-3444-90C1-58538FB1A917}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8FD289B5-4110-3444-90C1-58538FB1A917}.Debug|Win32.Build.0 = Debug|Win32
+		{8FD289B5-4110-3444-90C1-58538FB1A917}.Release|Win32.ActiveCfg = Release|Win32
+		{8FD289B5-4110-3444-90C1-58538FB1A917}.Release|Win32.Build.0 = Release|Win32
+		{CF6A7D75-9473-3672-B245-9A8F193B7477}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CF6A7D75-9473-3672-B245-9A8F193B7477}.Debug|Win32.Build.0 = Debug|Win32
+		{CF6A7D75-9473-3672-B245-9A8F193B7477}.Release|Win32.ActiveCfg = Release|Win32
+		{CF6A7D75-9473-3672-B245-9A8F193B7477}.Release|Win32.Build.0 = Release|Win32
+		{1DAB2587-FB3C-3EA9-B90C-A380A14041F6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1DAB2587-FB3C-3EA9-B90C-A380A14041F6}.Debug|Win32.Build.0 = Debug|Win32
+		{1DAB2587-FB3C-3EA9-B90C-A380A14041F6}.Release|Win32.ActiveCfg = Release|Win32
+		{1DAB2587-FB3C-3EA9-B90C-A380A14041F6}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {744E9AD8-6678-3B9F-AC13-143498BFAA4D}
+	EndGlobalSection
+EndGlobal
